@@ -92,7 +92,7 @@ class ViewController: UIViewController {
     let actionButton = UIButton();
     
     lazy var collisionNames : [String] = ["explosion-14105", "explosion-14272", "explosion-14273"];
-
+    
     var gameTimer: Timer?
     var animationTimer: Timer?
     var ballOriginXPosition = 10.0;
@@ -129,16 +129,14 @@ class ViewController: UIViewController {
         view.addSubview(nicknameLabel);
         view.addSubview(bottleView);
         
-        
         imageView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-    
+        
         scoreView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true;
         scoreView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 5).isActive = true;
         nickNameView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true;
         nickNameView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0).isActive = true;
         scoreView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 5).isActive = true;
         scoreLabel.text = "0";
-        //carriageView.image = carriageView.image?.rotated(CGFloat(-90))
         carriageView.frame = CGRect(x: 10, y: Double(screenHeight) - 150, width: 100  , height: 100 )
         bottleView.frame = CGRect(x: bottlePosition, y: Double(screenHeight) - 150,  width:80, height: 80);
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false;
@@ -152,9 +150,9 @@ class ViewController: UIViewController {
         nicknameLabel.topAnchor.constraint(equalTo: nickNameView.topAnchor, constant: 5).isActive = true;
         nicknameLabel.centerXAnchor.constraint(equalTo: nickNameView.centerXAnchor, constant: 0).isActive = true;
         nicknameLabel.bottomAnchor.constraint(equalTo: nickNameView.bottomAnchor, constant: -5).isActive = true;
-       nicknameLabel.numberOfLines = 0;
-       nicknameLabel.font = UIFont(name: "Helvetica-Bold", size: 25 );
-       nicknameLabel.textColor = .white;
+        nicknameLabel.numberOfLines = 0;
+        nicknameLabel.font = UIFont(name: "Helvetica-Bold", size: 25 );
+        nicknameLabel.textColor = .white;
         
         
         
@@ -163,7 +161,7 @@ class ViewController: UIViewController {
         angleSlider.addTarget(self, action: #selector(angleSliderValueDidChange(_:)), for: .valueChanged)
         let scoreStackView = createHorizontalStackView(name: "Angle", minPoint: 0, maxPoint: 90, tintColor: UIColor.blue , labelSlider: angleSlider, labelPoint: anglePointLabel);
         locationSlider.addTarget(self, action: #selector(locationSliderValueDidChange(_:)), for: .valueChanged)
-       
+        
         let locationStackView = createHorizontalStackView(name: "Location", minPoint: 0, maxPoint: 1500, tintColor: UIColor.purple, labelSlider: locationSlider, labelPoint: locationPointLabel);
         
         actionButton.setBackgroundImage(UIImage(named: "button"), for: .normal)
@@ -189,15 +187,11 @@ class ViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -75),
             stackView.topAnchor.constraint(equalTo: scoreView.bottomAnchor, constant: 10),
             
-            
         ])
-        
         
         scoreStackView.formatHorizontalStackView(withRespect: stackView)
         speedStackView.formatHorizontalStackView(withRespect: stackView);
         locationStackView.formatHorizontalStackView(withRespect: stackView);
-        
-       
         
     }
     
@@ -207,15 +201,15 @@ class ViewController: UIViewController {
     @objc func actionButtonPressed(_: AnyObject) {
         actionButton.isEnabled = false;
         carriageView.image = carriageView.image?.rotate(CGFloat(((360-carriageAngle)) * Double.pi/180));
-       carriageView.image = carriageView.image?.rotate(CGFloat((Double(angleSlider.value))*(Double.pi/180)));
+        carriageView.image = carriageView.image?.rotate(CGFloat((Double(angleSlider.value))*(Double.pi/180)));
         carriageAngle = Double(angleSlider.value)
         
         
         let bottleNewPosition: Double = Double(bottlePosition) + Double(locationPointLabel.text!)!/10;
         bottleView.frame = CGRect(x: bottleNewPosition, y: Double(screenHeight) - 150,  width: 80, height: 80);
         velocityX = Double(speedPointLabel.text!)! * cos(carriageAngle*(Double.pi/180.0));
-            velocityY  = Double(speedPointLabel.text!)! * sin(carriageAngle*(Double.pi/180.0));
-       view.addSubview(ballView);
+        velocityY  = Double(speedPointLabel.text!)! * sin(carriageAngle*(Double.pi/180.0));
+        view.addSubview(ballView);
         xPosition = 0.0;
         yPosition = 0.0;
         ballView.frame = CGRect(x: carriageView.frame.maxX - 40 , y: carriageView.frame.minY, width: 40, height: 40)
@@ -268,9 +262,9 @@ class ViewController: UIViewController {
         time = time + 0.001;
         
         velocityY =  Double(velocityY) - Double(10*time);
-       
+        
         //Detect collision
-    
+        
         if((ballView.frame.minX<bottleView.frame.maxX && ballView.frame.maxX>bottleView.frame.minX) && (ballView.frame.minY<bottleView.frame.maxY && ballView.frame.maxY>bottleView.frame.minY)){
             
             gameTimer?.invalidate()
@@ -287,7 +281,7 @@ class ViewController: UIViewController {
             animationTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(showCollissionAnimation), userInfo: nil, repeats: true)
             
         }
-        
+            
         else if(ballView.frame.minX >= UIScreen.main.bounds.width || ballView.frame.minX <= 0 ){
             ballView.removeFromSuperview();
             gameTimer?.invalidate()
@@ -295,14 +289,14 @@ class ViewController: UIViewController {
             actionButton.isEnabled = true;
             
         }
-        
+            
         else if(ballView.frame.minX <= UIScreen.main.bounds.width && ballView.frame.maxY >=      UIScreen.main.bounds.height){
             ballView.frame = CGRect(x: Double(ballView.frame.minX), y:  Double(ballView.frame.minY) - 60,  width: 40, height: 40);
             isCollided = false;
             gameTimer?.invalidate()
             actionButton.isEnabled = true;
             
-            }
+        }
         
     }
     
@@ -317,7 +311,7 @@ class ViewController: UIViewController {
         }
         
     }
-
+    
     
 }
 
