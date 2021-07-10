@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         // 2
         searchController.obscuresBackgroundDuringPresentation = false
         // 3
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search Items"
         // 4
         navigationItem.searchController = searchController
         // 5
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
             return item.name.lowercased().contains(searchText.lowercased())
         })
         if filteredUsers.isEmpty && searchText.count > 0 {
-            tableView.setEmptyView(title: "Search could not found.", message: "Try another one!")
+            tableView.setEmptyView(title: "Search item could not found.", message: "Try another one!")
         }else {
             tableView.restore()
         }

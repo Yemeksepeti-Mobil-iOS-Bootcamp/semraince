@@ -37,7 +37,7 @@ class LocationViewController: UIViewController {
     
     @IBAction func savePressed(_ sender: Any) {
         if let locationNameLast = locationName, let aptNo = aptNumber.text, let doorNo = doorNumber.text, aptNo.count > 0 && doorNo.count > 0 {
-            notificationData["name"] = locationNameLast + " \(aptNo)" + " \(doorNo)";
+            notificationData["name"] = locationNameLast + " BuildingNo: \(aptNo)" + " AptNo: \(doorNo)";
             NotificationCenter.default.post(name: .sendDataNotification, object: nil, userInfo: notificationData)
             dismiss(animated: true, completion: nil)
             

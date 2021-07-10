@@ -41,7 +41,7 @@
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHG-LH-LyF">
-                                <rect key="frame" x="0.0" y="793" width="414" height="0.0"/>
+                                <rect key="frame" x="5" y="793" width="404" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -67,13 +67,13 @@
                             <constraint firstItem="g0G-7v-Abl" firstAttribute="centerX" secondItem="IzV-MA-w9T" secondAttribute="centerX" id="DHj-ne-4Ds"/>
                             <constraint firstItem="1zj-38-G1I" firstAttribute="top" secondItem="TpT-4Q-TOd" secondAttribute="top" id="HzR-R5-Ua4"/>
                             <constraint firstItem="qTa-Zp-ZBX" firstAttribute="centerX" secondItem="IzV-MA-w9T" secondAttribute="centerX" id="JRJ-Q1-mED"/>
+                            <constraint firstAttribute="trailing" secondItem="AHG-LH-LyF" secondAttribute="trailing" constant="5" id="NkZ-rM-YWu"/>
                             <constraint firstItem="1zj-38-G1I" firstAttribute="leading" secondItem="TpT-4Q-TOd" secondAttribute="leading" id="QOS-qH-PfV"/>
-                            <constraint firstItem="TpT-4Q-TOd" firstAttribute="trailing" secondItem="AHG-LH-LyF" secondAttribute="trailing" id="YDq-WJ-6lm"/>
                             <constraint firstItem="TpT-4Q-TOd" firstAttribute="trailing" secondItem="1zj-38-G1I" secondAttribute="trailing" id="lnF-ab-py6"/>
-                            <constraint firstItem="AHG-LH-LyF" firstAttribute="leading" secondItem="TpT-4Q-TOd" secondAttribute="leading" id="nHH-lS-fKE"/>
                             <constraint firstItem="qTa-Zp-ZBX" firstAttribute="centerY" secondItem="IzV-MA-w9T" secondAttribute="centerY" constant="-80" id="nq4-tA-dVL"/>
                             <constraint firstItem="g0G-7v-Abl" firstAttribute="top" secondItem="1zj-38-G1I" secondAttribute="bottom" constant="20" id="oKe-k8-nDu"/>
                             <constraint firstItem="TpT-4Q-TOd" firstAttribute="bottom" secondItem="AHG-LH-LyF" secondAttribute="bottom" constant="20" id="sO1-wp-wwW"/>
+                            <constraint firstItem="AHG-LH-LyF" firstAttribute="leading" secondItem="IzV-MA-w9T" secondAttribute="leading" constant="5" id="slg-Mk-FbI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TpT-4Q-TOd"/>
                     </view>
